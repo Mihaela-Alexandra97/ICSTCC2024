@@ -7,7 +7,7 @@ n_obs = 3;
 n_cities = 4;  %excluding starting point
 n_cities = n_cities+1;  %first city will be starting point
 e=[0 1 2 4 5 ]'
-l=[10 7 4 7 10]'
+l=[10 17 7 7 10]'
 v=5.5;
 %%
 [Obstacles,Cities,init_fig_handle] = define_obstacles_cities(env_bounds,n_obs,n_cities);
@@ -30,7 +30,7 @@ for i=1:length(Obstacles)
 %     end
 end
 %%
-[Nodes_coord,Adj_full] = construct_visibility_graph(Obstacles,Cities,init_fig_handle,v);
+[Nodes_coord,Adj_full] = construct_visibility_graph(Obstacles,Cities,init_fig_handle);
 %%
 [Adj_red,Edge_to_path,ind_red_to_full] = reduce_graph(Adj_full,1:n_cities); %reduced graph with first n_cities
 costs=Adj_red;  
@@ -119,7 +119,7 @@ else
     i = 1;    %start from node 1
     path_red=1;  %***path_red is the obtained sequence through cities
     %*** node 1 is depot (initial)
-    for trans=1:no_trans    %***am schimbat for-ul 182-192 - doar pt. aflare traseu, path_red ***
+    for trans=1:no_trans    
         j = find(x_ij(i,:)==1);    %i is the current node, j is the next one
         path_red(end+1)=j;
         i=j;

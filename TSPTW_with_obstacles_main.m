@@ -17,7 +17,7 @@ for i=1:n_cities-1
         t(j,i) = t(i,j);
     end
 end
-%Plot TW n obstacle vertices
+%Plot TW n obstacle vertices com
 for i=1:n_cities
     text(Cities(1,i),Cities(2,i)-1.15,['[' num2str(e(i)),', ',num2str(l(i)) ']'],'Color','k','FontWeight','normal','HorizontalAlignment','center','VerticalAlignment','top','FontSize',15);
 end
